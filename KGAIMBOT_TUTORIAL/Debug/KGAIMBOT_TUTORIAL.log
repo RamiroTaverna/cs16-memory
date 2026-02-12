@@ -4,13 +4,21 @@ C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\KG_VARIABLES_GLOBA
       C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winuser.h(566,9):
       vea la definición anterior de “VK_F2”
   
-C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\GUI.cpp(275,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\GUI.cpp(275,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  imgui.cpp
-  imgui_draw.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  imgui_impl_dx9.cpp
-  imgui_impl_win32.cpp
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\GUI.cpp(271,87): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\GUI.cpp(271,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  KG_INJECT.cpp
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\KG_VARIABLES_GLOBALES.h(13,9): warning C4005: 'VK_F2': redefinición de macro
+  (compilando archivo de origen "KG_INJECT.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winuser.h(566,9):
+      vea la definición anterior de “VK_F2”
+  
+  kgbase.cpp
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\KG_VARIABLES_GLOBALES.h(13,9): warning C4005: 'VK_F2': redefinición de macro
+  (compilando archivo de origen "kgbase.cpp")
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winuser.h(566,9):
+      vea la definición anterior de “VK_F2”
+  
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\kgbase.cpp(300,40): warning C4244: '=': conversión de 'DWORD' a 'float'; posible pérdida de datos
+C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\KGAIMBOT_TUTORIAL\kgbase.cpp(323,44): warning C4244: '=': conversión de 'DWORD' a 'float'; posible pérdida de datos
   Generando código...
   KGAIMBOT_TUTORIAL.vcxproj -> C:\Users\Ramiro\Downloads\KGAIMBOT_TUTORIAL\Debug\KGAIMBOT_TUTORIAL.exe

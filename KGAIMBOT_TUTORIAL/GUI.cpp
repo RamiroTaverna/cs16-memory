@@ -152,8 +152,6 @@ namespace GUI {
     }
 
     void RenderLoop() {
-        std::cout << "[GUI] Iniciando RenderLoop..." << std::endl;
-        
         // Crear Ventana de Overlay
         WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, "KGAimbotOverlay", NULL };
         RegisterClassEx(&wc);
@@ -175,12 +173,10 @@ namespace GUI {
 
         // Inicializar D3D
         if (!InitD3D(overlayHwnd)) {
-            std::cout << "[GUI] ERROR: Fallo al inicializar DirectX 9." << std::endl;
             CleanupD3D();
             UnregisterClass("KGAimbotOverlay", wc.hInstance);
             return;
         }
-        std::cout << "[GUI] Overlay e ImGui inicializados correctamente." << std::endl;
 
         // Setup ImGui
         IMGUI_CHECKVERSION();

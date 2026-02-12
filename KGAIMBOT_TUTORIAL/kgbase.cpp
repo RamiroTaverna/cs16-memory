@@ -422,10 +422,6 @@ int main() {
     injeccion();
     generar_direcciones();
 
-    cout << "Iniciando Smooth Aimbot Natural..." << endl;
-    cout << "Presiona P para activar/desactivar" << endl;
-    Sleep(1000); // Este Sleep se mantiene para ver el mensaje inicial
-
     // Creación de hilos
     thread t1(leer_mi_poss);
     thread t2(team_sensor);

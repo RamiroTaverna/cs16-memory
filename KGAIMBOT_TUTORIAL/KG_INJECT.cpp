@@ -12,17 +12,21 @@ void injeccion()
 
 	hp=kg_abrir_proceso("hl.exe",PROCESS_VM_READ);
 	if(hp==INVALID_HANDLE_VALUE){
-		cout << "KG --> El proceso no esta abierto!" << endl;
+		// Process not found
 		
 	}else{
-		cout << "KG --> Cargando modulos del juego" << endl;
-		CLIENT=kg_obtener_modulo("client.dll", pid);   //CONSIGUE LOS MODULOS DEL JUEGO (PODES CAMBIARLO POR EL Q VOS QUIERAS.)
-		HL=kg_obtener_modulo("hl.exe", pid);   //CONSIGUE LOS MODULOS DEL JUEGO (PODES CAMBIARLO POR EL Q VOS QUIERAS.)
-		HW=kg_obtener_modulo("hw.dll", pid);           //IDEM XD
-		hp= OpenProcess(PROCESS_ALL_ACCESS, true, pid);    //DAMOS ACCESO AL PROCESO
-		kg_obtener_titulo_de_ventana_con_pid(pid);                        //OBTENEMOS EL TITULO DE LA VENTANA MEDIANTE UNA FUNCION CON EL PID.
-		hwnd=FindWindow(0,g_acTitle);                //BUSCAMOS LA VENTANA OBTENIDA MEDIANTE LA FUNC ANTERIOR.
-		cout << g_acTitle << endl;                       //LA VENTANITA ENCONTRADA.
+		// Load game modules
+		CLIENT=kg_obtener_modulo("client.dll", pid);
+		HL=kg_obtener_modulo("hl.exe", pid);
+		HW=kg_obtener_modulo("hw.dll", pid);
+		hp= OpenProcess(PROCESS_ALL_ACCESS, true, pid);
+		kg_obtener_titulo_de_ventana_con_pid(pid);
+		hwnd=FindWindow(0,g_acTitle);
 		
+		// Hide console window after successful initialization
+		HWND consoleWindow = GetConsoleWindow();
+		if (consoleWindow != NULL) {
+			ShowWindow(consoleWindow, SW_HIDE);
+		}
 	}
 }
