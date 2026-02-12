@@ -30,6 +30,7 @@ void toggleAimbot() {
 
         		if (current_p_state && !prev_p_state) {
             Config.EnableAimbot = !Config.EnableAimbot;
+            cout << "Aimbot " << (Config.EnableAimbot ? "ACTIVADO" : "DESACTIVADO") << endl;
         }
 
         prev_p_state = current_p_state;
@@ -299,6 +300,8 @@ void iniciarAimbotSmooth(int indiceEnemigo) {
     tiempo_inicio_smooth = GetTickCount();
     enemigo_actual = indiceEnemigo;
     moviendoMira = true;
+
+    cout << "Apuntando a enemigo " << indiceEnemigo << " | Duración: " << duracion_smooth << "ms" << endl;
 }
 
 // Hilo UNIFICADO del Aimbot
@@ -327,7 +330,47 @@ void aimbot_logic() {
 
 void kg_reader() {
     while (1) {
-        Sleep(100);
+        system("cls");
+        std::cout << "=== SMOOTH AIMBOT NATURAL ===\n";
+        std::cout << "MI POSICION: [" << (int)mi_poss_3d[0] << ", " << (int)mi_poss_3d[1] << ", " << (int)mi_poss_3d[2] << "]\n";
+        std::cout << "MI MIRA: [" << (int)mi_mira[0] << ", " << (int)mi_mira[1] << "]\n";
+        std::cout << "Aimbot: " << (Config.EnableAimbot ? "ACTIVADO" : "DESACTIVADO") << "\n";
+        std::cout << "Team Config: TT[" << (Config.TeamTT ? "ON" : "OFF") << "] CT[" << (Config.TeamCT ? "ON" : "OFF") << "]\n";
+        std::cout << "Estado mira: " << (moviendoMira ? "MOVIENDO" : "ESTABLE") << "\n\n";
+
+        int enemigoSeleccionado = -1;
+        if (moviendoMira) enemigoSeleccionado = enemigo_actual;
+        else enemigoSeleccionado = encontrarEnemigoConveniente();
+
+        if (enemigoSeleccionado != -1 && enemigoSeleccionado < 32) {
+            std::cout << "ENEMIGO OBJETIVO: P" << enemigoSeleccionado << "\n";
+            std::cout << "Distancia: " << (int)jugadores[enemigoSeleccionado].distancia << " unidades\n";
+            std::cout << "Angulo necesario: " << (int)jugadores[enemigoSeleccionado].angulo_diferencia << "°\n";
+            std::cout << "Nick: " << jugadores[enemigoSeleccionado].e_nick << "\n\n";
+        }
+
+        std::cout << "ENEMIGOS EN RANGO:\n";
+        int contador = 0;
+        for (int i = 1; i < 32; i++) {
+            if (jugadores[i].e_poss[0] != 0 && jugadores[i].e_status != 0) {
+                if (esEnemigo(jugadores[i].e_model)) {
+                    std::cout << (i == enemigoSeleccionado ? ">>> " : "    ")
+                        << "P" << i << ": "
+                        << "Dist: " << (int)jugadores[i].distancia
+                        << " | Ang: " << (int)jugadores[i].angulo_diferencia << "°"
+                        << " | " << (strlen(jugadores[i].e_nick) > 0 ? jugadores[i].e_nick : "[BOT]")
+                        << "\n";
+                    contador++;
+                }
+            }
+        }
+
+        if (contador == 0) {
+            std::cout << "No hay enemigos en rango\n";
+        }
+
+        std::cout << "\n[P] Activar/Desactivar aimbot\n";
+        Sleep(1); // CAMBIADO DE 100 A 1
     }
 }
 
@@ -378,6 +421,10 @@ int main() {
 
     injeccion();
     generar_direcciones();
+
+    cout << "Iniciando Smooth Aimbot Natural..." << endl;
+    cout << "Presiona P para activar/desactivar" << endl;
+    Sleep(1000); // Este Sleep se mantiene para ver el mensaje inicial
 
     // Creación de hilos
     thread t1(leer_mi_poss);
