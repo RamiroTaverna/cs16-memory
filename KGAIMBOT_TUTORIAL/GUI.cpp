@@ -152,8 +152,6 @@ namespace GUI {
     }
 
     void RenderLoop() {
-        std::cout << "[GUI] Iniciando RenderLoop..." << std::endl;
-        
         // Crear Ventana de Overlay
         WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, "KGAimbotOverlay", NULL };
         RegisterClassEx(&wc);
@@ -164,7 +162,6 @@ namespace GUI {
         overlayHwnd = CreateWindowEx(WS_EX_TOPMOST | WS_EX_LAYERED, "KGAimbotOverlay", "KGAimbot Overlay", WS_POPUP, 0, 0, screenW, screenH, NULL, NULL, wc.hInstance, NULL);
         
         if (!overlayHwnd) {
-             std::cout << "[GUI] ERROR: Fallo al crear ventana de overlay." << std::endl;
              return;
         }
 
@@ -175,12 +172,10 @@ namespace GUI {
 
         // Inicializar D3D
         if (!InitD3D(overlayHwnd)) {
-            std::cout << "[GUI] ERROR: Fallo al inicializar DirectX 9." << std::endl;
             CleanupD3D();
             UnregisterClass("KGAimbotOverlay", wc.hInstance);
             return;
         }
-        std::cout << "[GUI] Overlay e ImGui inicializados correctamente." << std::endl;
 
         // Setup ImGui
         IMGUI_CHECKVERSION();
@@ -317,7 +312,6 @@ namespace GUI {
 
     bool InitD3D(HWND hWnd) {
         if ((pD3D = Direct3DCreate9(D3D_SDK_VERSION)) == NULL) {
-            std::cout << "[GUI] ERROR: Direct3DCreate9 fallo." << std::endl;
             return false;
         }
 
@@ -331,11 +325,8 @@ namespace GUI {
 
         // Try Hardware Vertex Processing
         if (pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_HARDWARE_VERTEXPROCESSING, &d3dpp, &pDevice) < 0) {
-            std::cout << "[GUI] Advertencia: Hardware Vertex Processing fallo. Intentando Software..." << std::endl;
-            
             // Try Software Vertex Processing (Fallback)
             if (pD3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &d3dpp, &pDevice) < 0) {
-                std::cout << "[GUI] ERROR: CreateDevice fallo completamente." << std::endl;
                 return false;
             }
         }
