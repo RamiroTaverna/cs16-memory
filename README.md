@@ -1,8 +1,9 @@
 # RAMA AIM & ESP - Counter-Strike 1.6 (v23b) (SOLO TESTEADO CONTRA BOTS)
 
-# DESCARGA DEL CS 1.6: https://www.bkgaming.net/foro/files/file/4-counter-strike-16-no-steam-v23b-full/
-
 # CREDITOS A https://www.youtube.com/@KeyGen2009
+
+## ⚠️ Disclaimer
+Este software fue creado con fines **educativos** para aprender sobre lectura de memoria, matemáticas vectoriales (World-To-Screen) y renderizado con DirectX.
 
 Este proyecto es un **Cheat Externo** para Counter-Strike 1.6 (versión No-Steam v23b, protocolo 47/48). Incluye un **Aim Smooth** configurable y un sistema de **ESP (WH)** visual con cajas y nombres, todo controlado desde un menú gráfico (GUI) superpuesto.
 
@@ -47,6 +48,8 @@ Estos offsets son específicos para la versión v23b de CS 1.6 (hw.dll / client.
 | `BOT_STATUS` | `0x1B5A98C` | `hl.exe` / `hw.dll` |
 | `DISTANCIA_OFFSET` | `0x24C` | (Salto entre entidades) |
 
+# DESCARGA DEL CS 1.6: https://www.bkgaming.net/foro/files/file/4-counter-strike-16-no-steam-v23b-full/
+
 ## 📦 Instrucciones de Uso
 
 1.  **Compilar**: Abre el proyecto en Visual Studio 2019/2022 y compila en `Release (x86)`.
@@ -56,6 +59,3 @@ Estos offsets son específicos para la versión v23b de CS 1.6 (hw.dll / client.
 4.  **En el Juego**:
     *   Presiona `INSERT` para mostrar/ocultar el menú.
     *   Configura tu FOV, Smooth y activa "Aimbot" o "ESP".
-
-## ⚠️ Disclaimer
-Este software fue creado con fines **educativos** para aprender sobre lectura de memoria, matemáticas vectoriales (World-To-Screen) y renderizado con DirectX.
