@@ -1,17 +1,17 @@
-# RAMA AIMBOT & ESP - Counter-Strike 1.6 (v23b) (SOLO TESTEADO CONTRA BOTS)
+# RAMA AIM & ESP - Counter-Strike 1.6 (v23b) (SOLO TESTEADO CONTRA BOTS)
 
 # DESCARGA DEL CS 1.6: https://www.bkgaming.net/foro/files/file/4-counter-strike-16-no-steam-v23b-full/
 
 # CREDITOS A https://www.youtube.com/@KeyGen2009
 
-Este proyecto es un **Cheat Externo** para Counter-Strike 1.6 (versión No-Steam v23b, protocolo 47/48). Incluye un **Aimbot Smooth** configurable y un sistema de **ESP (Wallhack)** visual con cajas y nombres, todo controlado desde un menú gráfico (GUI) superpuesto.
+Este proyecto es un **Cheat Externo** para Counter-Strike 1.6 (versión No-Steam v23b, protocolo 47/48). Incluye un **Aim Smooth** configurable y un sistema de **ESP (WH)** visual con cajas y nombres, todo controlado desde un menú gráfico (GUI) superpuesto.
 
 ## 🚀 Características
 
-### 🎯 Aimbot
+### 🎯 Aim
 *   **Smooth Aim**: Movimiento de mira suavizado para parecer humano ("Legit").
 *   **Angulo de tracking Configurable**: Campo de visión ajustable.
-*   **Selector de Huesos**: Apunta a la cabeza, pecho o cintura.
+*   **Selector del model**: Apunta a la cabeza, pecho o cintura.
 *   **Team Check**: Configurable para atacar solo Terroristas (TT) o Anti-Terroristas (CT).
 
 ### 👁️ ESP (Visuals)
