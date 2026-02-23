@@ -50,12 +50,61 @@ Estos offsets son específicos para la versión v23b de CS 1.6 (hw.dll / client.
 
 # DESCARGA DEL CS 1.6: https://www.bkgaming.net/foro/files/file/4-counter-strike-16-no-steam-v23b-full/
 
-## 📦 Instrucciones de Uso
+## 🛠️ Compilación paso a paso
 
-1.  **Compilar**: Abre el proyecto en Visual Studio 2019/2022 y compila en `Release (x86)`.
-    *   *Nota*: Necesitas tener el SDK de DirectX 9 instalado y configurado.
-2.  **Ejecutar Juego**: Abre Counter-Strike 1.6 en modo Ventan `Windowed Mode` o `Fullscreen Windowed` (recomendado para el Overlay).
-3.  **Ejecutar Cheat**: Abre el `.exe` generado como Administrador.
-4.  **En el Juego**:
-    *   Presiona `INSERT` para mostrar/ocultar el menú.
-    *   Configura tu FOV, Smooth y activa "Aimbot" o "ESP".
+### Requisitos previos
+
+| Herramienta | Versión mínima | Descarga |
+| :--- | :--- | :--- |
+| **Visual Studio** | 2019 o 2022 | [visualstudio.microsoft.com](https://visualstudio.microsoft.com/) |
+| **Workload de C++** | Desktop development with C++ | (seleccionar durante instalación de VS) |
+| **DirectX SDK** | June 2010 (legacy) | [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=6812) |
+
+> ⚠️ El proyecto usa el **Platform Toolset v145** (Visual Studio 2022). Si tenés VS2019, podés cambiar el toolset en las propiedades del proyecto a `v142`.
+
+---
+
+### Pasos
+
+**1. Clonar el repositorio**
+```bash
+git clone https://github.com/RamiroTaverna/cs16-memory.git
+cd cs16-memory
+```
+
+**2. Instalar el DirectX SDK (June 2010)**
+- Descargarlo e instalarlo desde el link de arriba.
+- Se instala por defecto en `C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\`.
+- Visual Studio lo detecta automáticamente vía la variable de entorno `DXSDK_DIR`.
+
+**3. Abrir la solución**
+- Abrir el archivo `KGAIMBOT_TUTORIAL.sln` con Visual Studio.
+
+**4. Configurar la build**
+- En la barra superior, seleccionar:
+  - Configuración: **`Release`**
+  - Plataforma: **`Win32`** ← ⚠️ importante, **no** x64
+
+**5. Compilar**
+- Menú `Build` → `Build Solution` (o `Ctrl + Shift + B`).
+- El ejecutable se genera en: `Debug\KGAIMBOT_TUTORIAL.exe`
+
+---
+
+### Solución de errores comunes
+
+| Error | Causa | Solución |
+| :--- | :--- | :--- |
+| `d3d9.h: No such file` | DirectX SDK no instalado | Instalar DirectX SDK June 2010 |
+| `Toolset v145 not found` | VS2019 en lugar de VS2022 | Cambiar toolset a `v142` en propiedades del proyecto |
+| `LNK2019: unresolved external` en d3d9 | SDK no en el path | Verificar que `DXSDK_DIR` esté definido como variable de entorno |
+
+---
+
+## 🚀 Uso
+
+1. **Ejecutar el juego**: Abrir Counter-Strike 1.6 en modo `Windowed` o `Fullscreen Windowed` (necesario para el overlay).
+2. **Ejecutar el cheat**: Correr `KGAIMBOT_TUTORIAL.exe` **como Administrador**.
+3. **En el juego**:
+   - Presionar `INSERT` para mostrar/ocultar el menú.
+   - Configurar FOV, Smooth y activar **Aimbot** o **ESP** desde el menú.

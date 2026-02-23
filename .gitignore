@@ -87,5 +87,11 @@ DXSDK/
 # ImGui ini files
 imgui.ini
 
+# ImGui folders not needed for compilation
+imgui-master/examples/
+imgui-master/misc/
+imgui-master/docs/
+imgui-master/.github/
+
 # Config files (optional, uncomment if you don't want to track config)
 # config.ini
